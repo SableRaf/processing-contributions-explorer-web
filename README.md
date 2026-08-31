@@ -33,6 +33,7 @@ as are entries missing a name or download URL.
 - Text filter over name, author, description and categories.
 - Category dropdown, rebuilt per tab, with per-category counts.
 - Sort by name, author or version; click a header again to reverse.
+- Open publisher downloads in a new tab or copy their original URL.
 - Click a row's name to expand the full description, categories, required
   Processing revision range and homepage link.
 - State lives in the URL hash (`#type=tool&q=color&c=Data`), so views are

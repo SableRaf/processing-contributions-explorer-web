@@ -162,7 +162,7 @@ thead th.sorted.desc button::after { content: " \2191"; }
 .c-name { width: auto; }
 .c-author { width: 22%; }
 .c-version { width: 90px; }
-.c-dl { width: 96px; padding: 6px 8px; }
+.c-dl { width: 126px; padding: 6px 8px; }
 
 tbody tr { border-bottom: 1px solid var(--line); }
 tbody tr.open { background: var(--sel); }
@@ -178,14 +178,32 @@ td.author, td.version { color: var(--dim); }
 td.version { font-family: var(--mono); font-size: 12px; }
 
 .dl {
-  display: inline-block;
+  display: block;
   border: 1px solid var(--line);
   padding: 2px 8px;
   color: var(--link);
   text-decoration: none;
   font-size: 12px;
+  text-align: center;
 }
 .dl:hover { border-color: var(--link); }
+
+.download-actions { display: flex; flex-direction: column; gap: 4px; }
+
+.copy-link {
+  appearance: none;
+  width: 100%;
+  border: 1px solid var(--line);
+  border-radius: 0;
+  padding: 2px 5px;
+  background: var(--bg);
+  color: var(--dim);
+  font: 12px/1.45 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  cursor: pointer;
+}
+
+.copy-link:hover { color: var(--fg); border-color: var(--dim); }
+.copy-link:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
 
 /* Expanded detail */
 
@@ -275,7 +293,7 @@ dialog code { font-family: var(--mono); font-size: 12px; }
 
 @media (max-width: 720px) {
   .c-author, .c-version, td.author, td.version { display: none; }
-  .c-dl { width: 80px; }
+  .c-dl { width: 126px; }
   .toolbar { flex-wrap: wrap; }
   #category { flex: 1 1 100%; }
 }

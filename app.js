@@ -258,14 +258,34 @@
     tr.appendChild(ver);
 
     var dl = document.createElement('td');
+    var actions = document.createElement('div');
+    actions.className = 'download-actions';
     var a = document.createElement('a');
     a.className = 'dl';
     a.href = c.download;
     a.target = '_blank';
     a.rel = 'noopener noreferrer';
-    a.textContent = 'zip';
+    a.textContent = 'Download zip';
     a.title = 'Open download from publisher: ' + c.download.split('/').pop();
-    dl.appendChild(a);
+    actions.appendChild(a);
+
+    var copy = document.createElement('button');
+    copy.className = 'copy-link';
+    copy.type = 'button';
+    copy.textContent = 'Copy link';
+    copy.title = 'Copy publisher download link';
+    copy.setAttribute('aria-label', 'Copy download link for ' + c.name);
+    copy.addEventListener('click', function () {
+      copyText(c.download).then(function () {
+        copy.textContent = 'Copied';
+        setTimeout(function () { copy.textContent = 'Copy link'; }, 1500);
+      }).catch(function () {
+        copy.textContent = 'Failed';
+        setTimeout(function () { copy.textContent = 'Copy link'; }, 1500);
+      });
+    });
+    actions.appendChild(copy);
+    dl.appendChild(actions);
     tr.appendChild(dl);
 
     frag.appendChild(tr);
@@ -319,6 +339,29 @@
     a.rel = 'noopener';
     a.textContent = text;
     return a;
+  }
+
+  function copyText(text) {
+    if (navigator.clipboard && window.isSecureContext) {
+      return navigator.clipboard.writeText(text);
+    }
+
+    return new Promise(function (resolve, reject) {
+      var input = document.createElement('textarea');
+      input.value = text;
+      input.setAttribute('readonly', '');
+      input.style.position = 'fixed';
+      input.style.opacity = '0';
+      document.body.appendChild(input);
+      input.select();
+      try {
+        if (document.execCommand('copy')) resolve();
+        else reject(new Error('Copy command failed'));
+      } catch (e) {
+        reject(e);
+      }
+      document.body.removeChild(input);
+    });
   }
 
   /* ---------- state / events ---------- */
