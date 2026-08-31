@@ -64,8 +64,46 @@
   </ol>
 </dialog>
 
-<!-- js-yaml 5.4.1 (MIT), vendored so the page has no CDN dependency -->
-<script src="js-yaml.min.js"></script>
-<script src="app.js"></script>
+<script>
+(function () {
+  var yamlSources = [
+    'https://cdn.jsdelivr.net/npm/js-yaml@5.4.1/dist/browser/js-yaml.umd.min.js',
+    'https://unpkg.com/js-yaml@5.4.1/dist/browser/js-yaml.umd.min.js'
+  ];
+  var integrity = 'sha384-ZeSVdl4ww0+v8AUNr99Fa3LhaWYL5ZCNiyVm1vM8hLlC/ta7RV0+l1IjW7zIAlwA';
+
+  function showError() {
+    var status = document.getElementById('status');
+    status.className = 'status err';
+    status.textContent = 'Could not load the YAML parser. Check your network connection and reload.';
+  }
+
+  function loadApp() {
+    var app = document.createElement('script');
+    app.src = 'app.js';
+    app.onerror = showError;
+    document.body.appendChild(app);
+  }
+
+  function loadYaml(index) {
+    var yaml = document.createElement('script');
+    yaml.src = yamlSources[index];
+    yaml.integrity = integrity;
+    yaml.crossOrigin = 'anonymous';
+    yaml.onload = function () {
+      if (window.jsyaml && typeof window.jsyaml.load === 'function') loadApp();
+      else if (index + 1 < yamlSources.length) loadYaml(index + 1);
+      else showError();
+    };
+    yaml.onerror = function () {
+      if (index + 1 < yamlSources.length) loadYaml(index + 1);
+      else showError();
+    };
+    document.head.appendChild(yaml);
+  }
+
+  loadYaml(0);
+}());
+</script>
 </body>
 </html>

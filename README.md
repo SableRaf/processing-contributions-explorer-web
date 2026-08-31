@@ -8,7 +8,9 @@ download links to each contribution's `.zip`.
     index.html        markup
     style.css         flat styling, light + dark via prefers-color-scheme
     app.js            fetch, parse, filter, sort, render
-    js-yaml.min.js    js-yaml 5.4.1 (MIT), vendored — no CDN dependency
+
+`js-yaml` 5.4.1 is loaded from jsDelivr's CDN using a pinned URL and subresource
+integrity check, with unpkg as an automatic fallback.
 
 ## Data
 
@@ -41,8 +43,8 @@ unresolved template placeholders like `${library.categories}` are dropped.
 ## Hosting
 
 Any static host. For GitHub Pages, drop these files in the repo root (or
-`/docs`) and enable Pages. Opening `index.html` from disk also works, since the
-only network request is the cross-origin YAML fetch.
+`/docs`) and enable Pages. Opening `index.html` from disk also works, with
+network access for the CDN script and the cross-origin YAML fetch.
 
 ## AI Disclosure
 
