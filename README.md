@@ -3,6 +3,8 @@
 A single-page browser version of the Processing Contribution Manager, with direct
 download links to each contribution's `.zip`.
 
+[![Screenshot of the Contribution Explorer web app](screenshot.png)](screenshot.png)
+
 ## Files
 
     index.html        markup
