@@ -32,7 +32,7 @@ as are entries missing a name or download URL.
 - Four tabs — Libraries, Modes, Tools, Examples — with counts.
 - Text filter over name, author, description and categories.
 - Category dropdown, rebuilt per tab, with per-category counts.
-- Sort by name, author or version; click a header again to reverse.
+- Sort by name or author; click a header again to reverse.
 - Open publisher downloads in a new tab or copy their original URL.
 - Click a row's name to expand the full description, categories, required
   Processing revision range and homepage link.

@@ -188,23 +188,12 @@
     var key = state.sort;
     list.sort(function (a, b) {
       var r;
-      if (key === 'version') r = cmpVersion(a.version, b.version);
-      else if (key === 'author') r = a.authorText.localeCompare(b.authorText, undefined, { sensitivity: 'base' });
+      if (key === 'author') r = a.authorText.localeCompare(b.authorText, undefined, { sensitivity: 'base' });
       else r = 0;
       if (!r) r = a.sortName < b.sortName ? -1 : (a.sortName > b.sortName ? 1 : 0);
       return state.desc ? -r : r;
     });
     return list;
-  }
-
-  function cmpVersion(a, b) {
-    var pa = a.split(/[^0-9]+/).filter(Boolean).map(Number);
-    var pb = b.split(/[^0-9]+/).filter(Boolean).map(Number);
-    for (var i = 0; i < Math.max(pa.length, pb.length); i++) {
-      var d = (pa[i] || 0) - (pb[i] || 0);
-      if (d) return d;
-    }
-    return 0;
   }
 
   function render() {
