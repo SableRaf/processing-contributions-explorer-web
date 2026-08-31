@@ -1,4 +1,4 @@
-# Contribution Manager (web)
+# Contribution Explorer (web)
 
 A single-page browser version of the Processing Contribution Manager, with direct
 download links to each contribution's `.zip`.
