@@ -11,10 +11,13 @@
 
 <header class="titlebar">
   <h1>Processing Contributions Explorer</h1>
-  <button id="open-info" class="info-button" type="button" aria-label="About this page" title="About this page">i</button>
+  <button id="open-info" class="info-button" type="button" aria-label="About this page" title="About this page">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"></path></svg>
+  </button>
   <a class="github-link" href="https://github.com/SableRaf/processing-contributions-explorer-web" target="_blank" rel="noopener noreferrer" aria-label="View this project on GitHub" title="View this project on GitHub">
     <img src="Octicons-mark-github.svg" alt="">
   </a>
+  <p class="install-note">Note: contributions downloaded from this page must be <button class="text-link" type="button" data-open-install>installed manually</button>.</p>
 </header>
 
 <nav class="tabs" role="tablist" aria-label="Contribution type">
@@ -50,7 +53,10 @@
 </main>
 
 <footer>
-  <span id="meta"></span>
+  <div class="footer-info">
+    <span id="meta"></span>
+    <p>This page is not affiliated with or endorsed by the Processing Foundation. It is provided as-is with no warranties of any kind. The source code is licensed under the GNU General Public License v3.0 (GPLv3).</p>
+  </div>
   <button id="manual-install" type="button" data-open-install>How to install manually</button>
 </footer>
 
@@ -62,7 +68,7 @@
   <div class="modal-content">
     <p>If you&rsquo;re having trouble with the built-in Contribution Manager, please try the latest version of Processing first, available at <a href="https://processing.org/download" target="_blank" rel="noopener noreferrer">processing.org/download</a>.</p>
     <p>If the Contribution Manager is still unavailable, this page provides an unofficial fallback for browsing and downloading Processing libraries, modes, tools, and examples.</p>
-    <p>Note: downloads must be <button class="text-link" type="button" data-open-install>installed manually</button>.</p>
+    <p>This page is not affiliated with or endorsed by the Processing Foundation. It is provided as-is with no warranties of any kind.</p>
     <p class="src">Data source: <a href="https://github.com/processing/processing-contributions/blob/main/contributions.yaml" target="_blank" rel="noopener noreferrer">processing-contributions</a></p>
   </div>
 </dialog>
