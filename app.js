@@ -261,9 +261,10 @@
     var a = document.createElement('a');
     a.className = 'dl';
     a.href = c.download;
-    a.rel = 'noopener';
+    a.target = '_blank';
+    a.rel = 'noopener noreferrer';
     a.textContent = 'zip';
-    a.title = 'Download ' + c.download.split('/').pop();
+    a.title = 'Open download from publisher: ' + c.download.split('/').pop();
     dl.appendChild(a);
     tr.appendChild(dl);
 
