@@ -75,14 +75,21 @@
 
 <dialog id="install-modal" aria-labelledby="install-title">
   <div class="modal-head">
-    <h2 id="install-title">Install a library manually</h2>
+    <h2 id="install-title">Install a contribution manually</h2>
     <button id="close-modal" class="modal-close" type="button" aria-label="Close instructions">&times;</button>
   </div>
   <ol>
-    <li>Download the library ZIP using the <em>zip</em> button.</li>
+    <li>Download the contribution ZIP using its <em>Download zip</em> button.</li>
     <li>In Processing, open <em>Sketchbook folder</em> from the Preferences window.</li>
-    <li>Open (or create) the <code>libraries</code> folder inside it.</li>
-    <li>Unzip the library into that folder, then restart Processing.</li>
+    <li>Open (or create) the folder that matches the contribution type:
+      <ul class="install-folders">
+        <li><code>libraries/</code></li>
+        <li><code>modes/</code></li>
+        <li><code>tools/</code></li>
+        <li><code>examples/</code></li>
+      </ul>
+    </li>
+    <li>Unzip the contribution into that folder, then restart Processing.</li>
   </ol>
 </dialog>
 
