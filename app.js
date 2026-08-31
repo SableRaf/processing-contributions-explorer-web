@@ -27,7 +27,10 @@
     filter: document.getElementById('filter'),
     category: document.getElementById('category'),
     meta: document.getElementById('meta'),
-    manualInstall: document.getElementById('manual-install'),
+    openInfo: document.getElementById('open-info'),
+    infoModal: document.getElementById('info-modal'),
+    closeInfo: document.getElementById('close-info'),
+    installLinks: Array.prototype.slice.call(document.querySelectorAll('[data-open-install]')),
     installModal: document.getElementById('install-modal'),
     closeModal: document.getElementById('close-modal'),
     tabs: Array.prototype.slice.call(document.querySelectorAll('.tabs button')),
@@ -421,8 +424,23 @@
     });
   });
 
-  el.manualInstall.addEventListener('click', function () {
-    el.installModal.showModal();
+  el.openInfo.addEventListener('click', function () {
+    el.infoModal.showModal();
+  });
+
+  el.closeInfo.addEventListener('click', function () {
+    el.infoModal.close();
+  });
+
+  el.infoModal.addEventListener('click', function (e) {
+    if (e.target === el.infoModal) el.infoModal.close();
+  });
+
+  el.installLinks.forEach(function (link) {
+    link.addEventListener('click', function () {
+      if (el.infoModal.open) el.infoModal.close();
+      el.installModal.showModal();
+    });
   });
 
   el.closeModal.addEventListener('click', function () {
